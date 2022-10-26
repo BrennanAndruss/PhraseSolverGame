@@ -8,8 +8,15 @@ import java.util.Scanner;
 public class PhraseSolver
 {
   /* your code here - attributes */
+  private Player player1;
+  private Player player2;
+  private Board game;
 
   /* your code here - constructor(s) */ 
+  public PhraseSolver()
+  {
+    game = new Board();
+  }
 
   /* your code here - accessor(s) */
   

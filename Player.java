@@ -8,10 +8,35 @@ import java.util.Scanner;
 public class Player
 {
   /* your code here - attributes */
+  private String name;
+  private int score = 0;
 
   /* your code here - constructor(s) */ 
+  public Player(){}
+  public Player(String name)
+  {
+    this.name = name;
+  }
 
   /* your code here - accessor(s) */ 
+  public String getName()
+  {
+    return name;
+  }
+
+  public int getScore()
+  {
+    return score;
+  }
 
   /* your code here - mutator(s) */ 
+  public void setName(String name)
+  {
+    this.name = name;
+  }
+
+  public void addScore(int points)
+  {
+    score += points;
+  }
 }

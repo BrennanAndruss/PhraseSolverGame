@@ -13,8 +13,26 @@ public class  Board
   private int currentLetterValue; 
 
   /* your code here - constructor(s) */ 
-  
+  public Board()
+  {
+    phrase = loadPhrase();
+  }
+
   /* your code here - accessor(s) */
+  public String getPhrase()
+  {
+    return phrase;
+  }
+
+  public String getSolvedPhrase()
+  {
+    return solvedPhrase;
+  }
+
+  public int getLetterValue()
+  {
+    return currentLetterValue;
+  }
   
   /* your code here - mutator(s)  */
 
