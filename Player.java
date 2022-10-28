@@ -12,10 +12,20 @@ public class Player
   private int score = 0;
 
   /* your code here - constructor(s) */ 
-  public Player(){}
-  public Player(String name)
+  public Player()
   {
-    this.name = name;
+    System.out.println("Enter Player Name: ");
+    Scanner sc = new Scanner(System.in);
+    name = sc.nextLine();
+    score = 0;
+    System.out.println("Welcome to the game, " + name);
+  }
+
+  public Player(String inputName)
+  {
+    name = inputName;
+    score = 0;
+    System.out.println("Welcome to the game, " + name);
   }
 
   /* your code here - accessor(s) */ 

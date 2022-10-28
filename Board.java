@@ -15,7 +15,10 @@ public class  Board
   /* your code here - constructor(s) */ 
   public Board()
   {
+    solvedPhrase = "";
     phrase = loadPhrase();
+    setLetterValue();
+    System.out.println("Phrase: " + phrase); // test code
   }
 
   /* your code here - accessor(s) */
