@@ -103,24 +103,41 @@ public class  Board
     return tempPhrase;
   }  
 
+  /** Checks if each letter in phrase is equal to guessed letter
+   * 
+   * Precondition:
+   *  String parameter length == 1
+   *  phrase exists 
+   * Postcondition
+   *  solvedPhrase is updated to include all occurences of parameter guess in phrase
+   *  returns boolean depending on if phrase contains guess
+   */
   public boolean guessLetter(String guess)
   {
+    // Declare and initialize variables
     boolean foundLetter = false;
     String newSolvedPhrase = "";
     
+    // Iterate through each letter in phrase
     for (int i = 0; i < phrase.length(); i++)
     {
+      // Check if letter in phrase is equal to guessed letter
       if (phrase.substring(i, i + 1).equals(guess))
       {
+        // Add guess to newSolvedPhrase
         newSolvedPhrase += guess + " ";
+        // Set foundLetter to true
         foundLetter = true;
       }
       else
       {
+        // Keep what is already in solvedPhrase
         newSolvedPhrase += solvedPhrase.substring(i * 2, i * 2 + 1) + " ";  
       }
     }
+    // Update solvedPhrase
     solvedPhrase = newSolvedPhrase;
+    // Return whether the guess is in the phrase
     return foundLetter;
   } 
 } 
