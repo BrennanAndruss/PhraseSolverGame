@@ -29,7 +29,8 @@ public class PhraseSolver
   public void play()
   {
     boolean solved = false;
-    int currentPlayer = 1;
+    int currentPlayer = 0;
+    String guess = "";
 
     Scanner input = new Scanner(System.in);
     
@@ -38,12 +39,55 @@ public class PhraseSolver
     {
       
       /* your code here - game logic */
+      // Prompt current player to make a guess
+      System.out.println("Solved phrase: " + game.getSolvedPhrase());
+      System.out.println("Current player: Player " + (currentPlayer + 1));
+      System.out.println("Make a guess: ");
+      guess = input.nextLine();
       
+      // Check if the phrase has been guessed or a letter has been guessed
+      
+      if (game.guessLetter(guess))
+      {
+        // Award points to current player
+        System.out.println("Good guess!");
+        game.setLetterValue();
+        if (currentPlayer == 0)
+        {
+          player1.addScore(game.getLetterValue());
+        }
+        else
+        {
+          player2.addScore(game.getLetterValue());
+        }
+      }
       
       /* your code here - determine how game ends */
-      solved = true; 
-    } 
-   
+      // Check if the phrase is solved
+      if (game.getSolvedPhrase().indexOf("_") == -1 || game.isSolved(guess))
+      {
+        // Stop the game
+        solved = true;
+      }
+      else
+      {
+        // Show status of game
+        System.out.println(player1.getName() + ": " + player1.getScore());
+        System.out.println(player2.getName() + ": " + player2.getScore());
+        System.out.println();
+        // Change players
+        currentPlayer = (currentPlayer + 1) % 2;
+      }
+    }
+
+    // Determine the winner
+    if (player1.getScore() > player2.getScore())
+    {
+      System.out.println(player1.getName() + " wins!");
+    }
+    else if (player2.getScore() > player1.getScore())
+    {
+      System.out.println(player2.getName() + " wins!");
+    }
   }
-  
 }
