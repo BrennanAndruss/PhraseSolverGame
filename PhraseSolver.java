@@ -80,6 +80,8 @@ public class PhraseSolver
       }
     }
 
+    System.out.println("Solved phrase: " + game.getSolvedPhrase());
+
     // Determine the winner
     if (player1.getScore() > player2.getScore())
     {
